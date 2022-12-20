@@ -1,4 +1,4 @@
-# N-Layer Architecture
+# N-Layer Architecture 
 
 In software engineering N-Layer architecture is a client–server architecture in which presentation, application processing and data management functions are physically separated. The most widespread use of multitier architecture is the **three-tier/layer architecture**.
 
