@@ -8,8 +8,6 @@ While the concepts of **layer** and **tier** are often used interchangeably, one
 
 ![image](https://user-images.githubusercontent.com/34960418/205287285-4da1e84e-d886-4952-8ea5-ca47b928cab7.png)
 
-![image](https://user-images.githubusercontent.com/34960418/205287629-38c49499-6eba-47bd-bafb-ceae9f218d0a.png)
-
 ## Layers
 
 - Presentation layer (a.k.a. UI layer, view layer, presentation tier in multitier architecture)
