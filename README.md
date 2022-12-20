@@ -26,4 +26,12 @@ The service layer is pulled out from the presentation layer and, as its layer, i
 
 The data access layer encapsulates the persistence mechanisms and exposes the data. The data access layer should provide an API to the service layer that exposes methods of managing the stored data without exposing or creating dependencies on the data storage mechanisms. As with the separation of any layer, there are costs for implementation and often costs to performance in exchange for improved maintainability.
 
+# Technologies
+
+- [ASP.NET Core 7](https://learn.microsoft.com/en-us/aspnet/core/introduction-to-aspnet-core?view=aspnetcore-7.0)
+- [Entity Framework Core 7](https://learn.microsoft.com/en-us/ef/core/)
+- [AutoMapper](https://automapper.org/)
+- [NUnit](https://nunit.org/)
+- [FluentAssertions](https://fluentassertions.com/)
+- [Moq](https://github.com/moq)
 
