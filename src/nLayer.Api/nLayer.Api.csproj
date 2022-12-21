@@ -16,8 +16,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\nLayer.Application\nLayer.Application.csproj" />
     <ProjectReference Include="..\nLayer.Data\nLayer.Data.csproj" />
-    <ProjectReference Include="..\nLayer.Services\nLayer.Application.csproj" />
   </ItemGroup>
 
 </Project>
