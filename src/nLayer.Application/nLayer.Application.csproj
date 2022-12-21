@@ -17,8 +17,4 @@
     <ProjectReference Include="..\nLayer.Data\nLayer.Data.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Employees\" />
-  </ItemGroup>
-
 </Project>

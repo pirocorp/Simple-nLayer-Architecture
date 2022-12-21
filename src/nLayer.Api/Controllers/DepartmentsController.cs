@@ -1,16 +1,17 @@
 ﻿namespace nLayer.Api.Controllers;
 
-using Application.Departments.Commands.DeleteDepartment;
+
 using Microsoft.AspNetCore.Mvc;
 
+using nLayer.Application.Departments.Commands.CreateDepartment;
+using nLayer.Application.Departments.Commands.DeleteDepartment;
+using nLayer.Application.Departments.Commands.RenameDepartment;
 using nLayer.Application.Departments.Queries.GetDepartments;
 using nLayer.Application.Departments.Queries.GetDepartmentsById;
-using nLayer.Application.Departments.Commands.CreateDepartment;
-using nLayer.Application.Departments.Commands.RenameDepartment;
 
 public class DepartmentsController : ApiControllerBase
 {
-    [HttpGet("{id:int}")]
+    [HttpGet(WITH_ID)]
     public async Task<ActionResult<DepartmentFullDetailsDto>> GetById(
         int id,
         CancellationToken cancellationToken)
@@ -29,7 +30,7 @@ public class DepartmentsController : ApiControllerBase
         CancellationToken cancellationToken)
             => await this.Mediator.Send(input, cancellationToken);
 
-    [HttpPatch("{id:int}")]
+    [HttpPatch(WITH_ID)]
     public async Task<ActionResult<RenameDepartmentDetailsDto>> RenameDepartment(
         int id,
         RenameDepartmentCommand command,
@@ -42,7 +43,7 @@ public class DepartmentsController : ApiControllerBase
         return this.OkOrNotFound(response);
     }
 
-    [HttpDelete("{id:int}")]
+    [HttpDelete(WITH_ID)]
     public async Task<ActionResult<DeleteDepartmentDetailsDto>> Delete(int id, CancellationToken cancellationToken)
         => this.OkOrNotFound(
             await this.Mediator.Send(

@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 [Route("api/[controller]")]
 public abstract class ApiControllerBase : ControllerBase
 {
+    protected const string WITH_ID = "{id:int}";
+
     private IMediator? mediator;
     
     protected IMediator Mediator => this.mediator ??= this

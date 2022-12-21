@@ -1,22 +1,25 @@
-﻿namespace nLayer.Application.Models.Employees;
+﻿namespace nLayer.Application.Employees.Commands.CreateEmployee;
 
 using System.ComponentModel.DataAnnotations;
+using MediatR;
 
-public class CreateEmployeeDto
+using static Data.Common.DataConstants.Employee;
+
+public class CreateEmployeeCommand : IRequest<CreateEmployeeDto>
 {
     [Required]
-    [StringLength(200)]
+    [StringLength(NAME_MAX_LENGTH)]
     public string Name { get; set; } = string.Empty;
 
     public int Age { get; set; }
 
     [Required]
     [EmailAddress]
-    [StringLength(200)]
+    [StringLength(EMAIL_MAX_LENGTH)]
     public string Email { get; set; } = string.Empty;
 
     [Required]
-    [StringLength(200)]
+    [StringLength(ADDRESS_MAX_LENGTH)]
     public string Address { get; set; } = string.Empty;
 
     public string Gender { get; set; } = string.Empty;

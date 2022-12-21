@@ -1,4 +1,4 @@
-﻿namespace nLayer.Application.Models.Employees;
+﻿namespace nLayer.Application.Employees.Queries.GetEmployeesById;
 
 using AutoMapper;
 
@@ -7,7 +7,7 @@ using nLayer.Data.Entities;
 
 using DateTime = System.DateTime;
 
-public class EmployeeDetailsDto : IMapFrom<Employee>
+public class GetEmployeesByIdDto : IMapFrom<Employee>
 {
     public int Id { get; set; }
 
@@ -32,7 +32,7 @@ public class EmployeeDetailsDto : IMapFrom<Employee>
     public void Mapping(Profile profile)
     {
         profile
-            .CreateMap<Employee, EmployeeDetailsDto>()
+            .CreateMap<Employee, GetEmployeesByIdDto>()
             .ForMember(
                 d => d.Gender,
                 opt

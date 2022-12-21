@@ -4,9 +4,11 @@ using MediatR;
 
 using System.ComponentModel.DataAnnotations;
 
+using static Data.Common.DataConstants.Department;
+
 public class CreateDepartmentCommand : IRequest<CreateDepartmentDetailsDto>
 {
     [Required]
-    [StringLength(200)]
+    [StringLength(NAME_MAX_LENGTH)]
     public string Name { get; set; } = string.Empty;
 }

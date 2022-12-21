@@ -16,7 +16,6 @@ public static class ConfigureServices
         services.AddMediatR(Assembly.GetExecutingAssembly());
 
         services.AddTransient<IDateTimeService, DateTimeService>();
-        services.AddTransient<IEmployeeService, EmployeeService>();
 
         return services;
     }
