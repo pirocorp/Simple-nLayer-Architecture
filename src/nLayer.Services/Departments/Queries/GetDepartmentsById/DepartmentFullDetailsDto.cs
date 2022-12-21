@@ -1,14 +1,16 @@
-﻿namespace nLayer.Services.Models.Departments;
+﻿namespace nLayer.Application.Departments.Queries.GetDepartmentsById;
 
 using AutoMapper;
-using Data.Entities;
-using Mappings;
+
+using nLayer.Application.Mappings;
+using nLayer.Application.Models.Departments;
+using nLayer.Data.Entities;
 
 public class DepartmentFullDetailsDto : DepartmentDetailsDto, IMapFrom<Department>
 {
     public DepartmentFullDetailsDto()
     {
-        this.Employees = new List<EmployeeListingDto>();
+        Employees = new List<EmployeeListingDto>();
     }
 
     public IEnumerable<EmployeeListingDto> Employees { get; set; }
@@ -17,7 +19,7 @@ public class DepartmentFullDetailsDto : DepartmentDetailsDto, IMapFrom<Departmen
         => profile
             .CreateMap<Department, DepartmentFullDetailsDto>()
             .ForMember(
-                d => d.Employees, 
-                opt 
+                d => d.Employees,
+                opt
                     => opt.MapFrom(s => s.Employees));
 }

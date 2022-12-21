@@ -1,9 +1,9 @@
-﻿namespace nLayer.Services.Models.Departments;
+﻿namespace nLayer.Application.Models.Departments;
 
 using AutoMapper;
 
+using nLayer.Application.Mappings;
 using nLayer.Data.Entities;
-using nLayer.Services.Mappings;
 
 using DateTime = System.DateTime;
 

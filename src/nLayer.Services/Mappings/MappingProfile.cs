@@ -1,8 +1,8 @@
-﻿namespace nLayer.Services.Mappings;
-
-using AutoMapper;
+﻿namespace nLayer.Application.Mappings;
 
 using System.Reflection;
+
+using AutoMapper;
 
 public class MappingProfile : Profile
 {

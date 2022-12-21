@@ -1,16 +1,16 @@
-﻿namespace nLayer.Services;
+﻿namespace nLayer.Application;
 
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
 
 using Microsoft.EntityFrameworkCore;
 
+using nLayer.Application.DateTime;
+using nLayer.Application.Exceptions;
+using nLayer.Application.Models.Employees;
 using nLayer.Data;
 using nLayer.Data.Entities;
 using nLayer.Data.Enums;
-using nLayer.Services.DateTime;
-using nLayer.Services.Exceptions;
-using nLayer.Services.Models.Employees;
 
 public class EmployeeService : IEmployeeService
 {

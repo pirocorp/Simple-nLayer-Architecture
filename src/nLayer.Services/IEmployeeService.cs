@@ -1,6 +1,6 @@
-﻿namespace nLayer.Services;
+﻿namespace nLayer.Application;
 
-using Models.Employees;
+using nLayer.Application.Models.Employees;
 
 public interface IEmployeeService
 {

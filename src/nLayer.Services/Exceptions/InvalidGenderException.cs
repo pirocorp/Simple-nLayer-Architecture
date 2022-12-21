@@ -1,4 +1,4 @@
-﻿namespace nLayer.Services.Exceptions;
+﻿namespace nLayer.Application.Exceptions;
 
 public class InvalidGenderException : ArgumentException
 {

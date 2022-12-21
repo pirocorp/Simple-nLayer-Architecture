@@ -26,7 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\nLayer.Services\nLayer.Services.csproj" />
+    <ProjectReference Include="..\..\src\nLayer.Services\nLayer.Application.csproj" />
   </ItemGroup>
 
 </Project>

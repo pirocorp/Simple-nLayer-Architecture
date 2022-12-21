@@ -1,4 +1,4 @@
-﻿namespace nLayer.Services.Models.Employees;
+﻿namespace nLayer.Application.Models.Employees;
 
 using System.ComponentModel.DataAnnotations;
 

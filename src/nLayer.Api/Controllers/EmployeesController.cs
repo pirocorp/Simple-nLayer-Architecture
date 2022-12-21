@@ -1,9 +1,8 @@
 ﻿namespace nLayer.Api.Controllers;
 
+using Application;
+using Application.Models.Employees;
 using Microsoft.AspNetCore.Mvc;
-
-using nLayer.Services;
-using nLayer.Services.Models.Employees;
 
 public class EmployeesController : ApiControllerBase
 {

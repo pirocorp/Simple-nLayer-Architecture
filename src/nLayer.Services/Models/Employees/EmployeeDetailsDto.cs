@@ -1,9 +1,9 @@
-﻿namespace nLayer.Services.Models.Employees;
+﻿namespace nLayer.Application.Models.Employees;
 
 using AutoMapper;
 
+using nLayer.Application.Mappings;
 using nLayer.Data.Entities;
-using nLayer.Services.Mappings;
 
 using DateTime = System.DateTime;
 

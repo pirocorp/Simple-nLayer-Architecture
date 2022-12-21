@@ -1,14 +1,11 @@
 namespace nLayer.Api;
 
-using System.Reflection;
+using Application;
 
 using Microsoft.EntityFrameworkCore;
 
 using nLayer.Api.Extensions;
 using nLayer.Data;
-using nLayer.Services;
-using nLayer.Services.DateTime;
-using nLayer.Services.Mappings;
 
 public class Program
 {
@@ -40,11 +37,7 @@ public class Program
             .AddDbContext<ApplicationDbContext>(
                 options => options.UseSqlServer(sqlServerConnectionString));
 
-        services.AddAutoMapper(Assembly.GetAssembly(typeof(IMapFrom<>)));
-
-        services.AddTransient<IDateTimeService, DateTimeService>();
-        services.AddTransient<IDepartmentService, DepartmentService>();
-        services.AddTransient<IEmployeeService, EmployeeService>();
+        services.AddApplicationServices();
 
         services.AddControllers();
 

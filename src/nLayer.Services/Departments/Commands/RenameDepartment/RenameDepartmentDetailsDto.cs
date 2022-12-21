@@ -1,11 +1,11 @@
-﻿namespace nLayer.Application.Models.Departments;
+﻿namespace nLayer.Application.Departments.Commands.RenameDepartment;
+
+using System;
 
 using nLayer.Application.Mappings;
 using nLayer.Data.Entities;
 
-using DateTime = System.DateTime;
-
-public class DepartmentDetailsDto : IMapFrom<Department>
+public class RenameDepartmentDetailsDto : IMapFrom<Department>
 {
     public int Id { get; set; }
 

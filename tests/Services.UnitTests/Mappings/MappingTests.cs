@@ -3,11 +3,12 @@
 using System.Runtime.Serialization;
 
 using AutoMapper;
-
+using nLayer.Application.Departments.Queries.GetDepartments;
+using nLayer.Application.Departments.Queries.GetDepartmentsById;
+using nLayer.Application.Mappings;
+using nLayer.Application.Models.Departments;
+using nLayer.Application.Models.Employees;
 using nLayer.Data.Entities;
-using nLayer.Services.Mappings;
-using nLayer.Services.Models.Departments;
-using nLayer.Services.Models.Employees;
 
 public class MappingTests
 {

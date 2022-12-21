@@ -1,46 +1,51 @@
 ﻿namespace nLayer.Api.Controllers;
 
+using Application.Departments.Commands.DeleteDepartment;
 using Microsoft.AspNetCore.Mvc;
 
-using nLayer.Services;
-using nLayer.Services.Models.Departments;
+using nLayer.Application.Departments.Queries.GetDepartments;
+using nLayer.Application.Departments.Queries.GetDepartmentsById;
+using nLayer.Application.Departments.Commands.CreateDepartment;
+using nLayer.Application.Departments.Commands.RenameDepartment;
 
 public class DepartmentsController : ApiControllerBase
 {
-    private readonly IDepartmentService departmentService;
-
-    public DepartmentsController(IDepartmentService departmentService)
-    {
-        this.departmentService = departmentService;
-    }
-
-    [HttpGet("{id}")]
-    public async Task<ActionResult<DepartmentFullDetailsDto>> GetById(int id)
-        => this.OkOrNotFound(await this.departmentService.GetById(id));
+    [HttpGet("{id:int}")]
+    public async Task<ActionResult<DepartmentFullDetailsDto>> GetById(
+        int id,
+        CancellationToken cancellationToken)
+            => this.OkOrNotFound(await this.Mediator
+                .Send(new GetDepartmentsByIdQuery(id), cancellationToken));
 
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<DepartmentListingDto>>> GetDepartments()
-        => this.Ok(await this.departmentService.GetAll());
+    public async Task<ActionResult<IEnumerable<DepartmentListingDto>>> GetDepartments(
+        CancellationToken cancellationToken)
+            => this.Ok(await this.Mediator
+                    .Send(new GetDepartmentsQuery(), cancellationToken));
 
     [HttpPost]
-    public async Task<ActionResult<DepartmentDetailsDto>> CreateDepartment(
-        CreateDepartmentDto input,
+    public async Task<ActionResult<CreateDepartmentDetailsDto>> CreateDepartment(
+        CreateDepartmentCommand input,
         CancellationToken cancellationToken)
-        => await this.departmentService
-                .CreateDepartment(input, cancellationToken);
+            => await this.Mediator.Send(input, cancellationToken);
 
-    [HttpPatch("{id}")]
-    public async Task<ActionResult<DepartmentDetailsDto>> RenameDepartment(
+    [HttpPatch("{id:int}")]
+    public async Task<ActionResult<RenameDepartmentDetailsDto>> RenameDepartment(
         int id,
-        RenameDepartmentDto dto,
+        RenameDepartmentCommand command,
         CancellationToken cancellationToken)
-        => this
-            .OkOrNotFound(await this.departmentService
-                .RenameDepartment(id, dto, cancellationToken));
+    {
+        command.Id = id;
+        var response = await this.Mediator
+            .Send(command, cancellationToken);
 
-    [HttpDelete("{id}")]
-    public async Task<ActionResult> Delete(int id, CancellationToken cancellationToken)
-        => this
-            .NoContentOrNotFound(await this.departmentService
-                .DeleteDepartment(id, cancellationToken));
+        return this.OkOrNotFound(response);
+    }
+
+    [HttpDelete("{id:int}")]
+    public async Task<ActionResult<DeleteDepartmentDetailsDto>> Delete(int id, CancellationToken cancellationToken)
+        => this.OkOrNotFound(
+            await this.Mediator.Send(
+                new DeleteDepartmentCommand() { Id = id }, 
+                cancellationToken));
 }

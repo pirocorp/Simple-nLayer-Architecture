@@ -1,4 +1,4 @@
-﻿namespace nLayer.Services.Mappings;
+﻿namespace nLayer.Application.Mappings;
 
 using AutoMapper;
 using AutoMapper.QueryableExtensions;

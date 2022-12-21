@@ -9,7 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{AA8FBCF5
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nLayer.Data", "src\nLayer.Data\nLayer.Data.csproj", "{6A19D832-B957-4A00-A3EE-E1C9818302A5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nLayer.Services", "src\nLayer.Services\nLayer.Services.csproj", "{B51904A9-204C-44C7-AEA5-5AE181B56854}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nLayer.Application", "src\nLayer.Services\nLayer.Application.csproj", "{B51904A9-204C-44C7-AEA5-5AE181B56854}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nLayer.Api", "src\nLayer.Api\nLayer.Api.csproj", "{AEBA8648-C98C-440B-9CD4-FAFDFF93A115}"
 EndProject
