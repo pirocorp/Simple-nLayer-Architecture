@@ -18,9 +18,9 @@ While the concepts of **layer** and **tier** are often used interchangeably, one
 
 This is the topmost level of the application. The presentation layer displays information related to such services as browsing merchandise, purchasing and shopping cart contents. In simple terms, it is a layer that users can access directly (such as a web page, or an operating system's GUI).
 
-### Service Layer (nLayer.Services)
+### Application Layer (nLayer.Application)
 
-The service layer is pulled out from the presentation layer and, as its layer, it controls an application’s functionality by performing detailed processing.
+The application layer contains [CQRS](https://github.com/pirocorp/CSharp-Masterclass/tree/main/09.%20CQRS) and [MediatR](https://github.com/jbogard/MediatR). **CQRS stands for Command and Query Responsibility Segregation**, a pattern that separates read and update operations for a data store. The flexibility created by migrating to CQRS allows a system to better evolve over time and prevents update commands from causing merge conflicts at the domain level.
 
 ### Data Layer (nLayer.Data)
 
@@ -34,4 +34,5 @@ The data access layer encapsulates the persistence mechanisms and exposes the da
 - [NUnit](https://nunit.org/)
 - [FluentAssertions](https://fluentassertions.com/)
 - [Moq](https://github.com/moq)
+- [MediatR](https://github.com/jbogard/MediatR)
 
