@@ -11,7 +11,7 @@ public class DepartmentFullDetailsDto : IMapFrom<Department>
 {
     public DepartmentFullDetailsDto()
     {
-        Employees = new List<EmployeeListingDto>();
+        this.Employees = new List<EmployeeListingDto>();
     }
 
     public int Id { get; set; }

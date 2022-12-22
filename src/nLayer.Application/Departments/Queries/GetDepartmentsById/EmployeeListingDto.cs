@@ -1,11 +1,11 @@
 ﻿namespace nLayer.Application.Departments.Queries.GetDepartmentsById;
 
+using System;
+
 using AutoMapper;
 
 using nLayer.Application.Mappings;
 using nLayer.Data.Entities;
-
-using DateTime = System.DateTime;
 
 public class EmployeeListingDto : IMapFrom<Employee>
 {
