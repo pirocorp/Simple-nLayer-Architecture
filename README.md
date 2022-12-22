@@ -1,5 +1,7 @@
 # Simple nLayer Architecture
 
+## Layers
+
 ## Presentation Layer (nLayer.Api)
 
 This is the topmost level of the application. The presentation layer displays information related to such services as browsing merchandise, purchasing and shopping cart contents. In simple terms, it is a layer that users can access directly (such as a web page, or an operating system's GUI).
@@ -20,4 +22,3 @@ The data access layer encapsulates the persistence mechanisms and exposes the da
 - [NUnit](https://nunit.org/)
 - [FluentAssertions](https://fluentassertions.com/)
 - [Moq](https://github.com/moq)
-
