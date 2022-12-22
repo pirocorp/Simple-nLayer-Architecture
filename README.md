@@ -16,5 +16,5 @@ While the concepts of **layer** and **tier** are often used interchangeably, one
 
 # Examples
 
-[Simple N-Layer Architecture](https://github.com/pirocorp/Simple-nLayer-Architecture/tree/simple-nlayer-architecture)
-[Simple N-Layer Architecture with CQRS](https://github.com/pirocorp/Simple-nLayer-Architecture/tree/simple-nlayer-architecture-with-cqrs)
+- [Simple N-Layer Architecture](https://github.com/pirocorp/Simple-nLayer-Architecture/tree/simple-nlayer-architecture)
+- [Simple N-Layer Architecture with CQRS](https://github.com/pirocorp/Simple-nLayer-Architecture/tree/simple-nlayer-architecture-with-cqrs)
