@@ -13,3 +13,8 @@ While the concepts of **layer** and **tier** are often used interchangeably, one
 - Presentation layer (a.k.a. UI layer, view layer, presentation tier in multitier architecture)
 - Business layer (a.k.a. business logic layer (BLL), domain logic layer)
 - Data access layer (a.k.a. persistence layer, logging, networking, and other services which are required to support a particular business layer)
+
+# Examples
+
+[Simple N-Layer Architecture](https://github.com/pirocorp/Simple-nLayer-Architecture/tree/simple-nlayer-architecture)
+[Simple N-Layer Architecture with CQRS](https://github.com/pirocorp/Simple-nLayer-Architecture/tree/simple-nlayer-architecture-with-cqrs)
