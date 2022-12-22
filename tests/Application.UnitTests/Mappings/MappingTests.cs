@@ -9,11 +9,14 @@ using nLayer.Application.Departments.Commands.DeleteDepartment;
 using nLayer.Application.Departments.Commands.RenameDepartment;
 using nLayer.Application.Departments.Queries.GetDepartments;
 using nLayer.Application.Departments.Queries.GetDepartmentsById;
+using nLayer.Application.Employees.Commands.CreateEmployee;
+using nLayer.Application.Employees.Commands.FireEmployee;
+using nLayer.Application.Employees.Commands.UpdateEmployee;
 using nLayer.Application.Employees.Queries.GetEmployees;
 using nLayer.Application.Employees.Queries.GetEmployeesById;
 using nLayer.Application.Mappings;
 using nLayer.Data.Entities;
-using GetEmployeesListingDto = nLayer.Application.Employees.Queries.GetEmployees.GetEmployeesListingDto;
+
 
 public class MappingTests
 {
@@ -41,7 +44,10 @@ public class MappingTests
     [TestCase(typeof(Department), typeof(RenameDepartmentDetailsDto))]
     [TestCase(typeof(Department), typeof(DepartmentFullDetailsDto))]
     [TestCase(typeof(Department), typeof(DepartmentListingDto))]
-    [TestCase(typeof(Employee), typeof(nLayer.Application.Departments.Queries.GetDepartmentsById.EmployeeListingDto))]
+    [TestCase(typeof(Employee), typeof(CreateEmployeeDto))]
+    [TestCase(typeof(Employee), typeof(FireEmployeeDto))]
+    [TestCase(typeof(Employee), typeof(UpdateEmployeeDto))]
+    [TestCase(typeof(Employee), typeof(EmployeeListingDto))]
     [TestCase(typeof(Employee), typeof(GetEmployeesByIdDto))]
     [TestCase(typeof(Employee), typeof(GetEmployeesListingDto))]
     public void ShouldSupportMappingFromSourceToDestination(Type source, Type destination)

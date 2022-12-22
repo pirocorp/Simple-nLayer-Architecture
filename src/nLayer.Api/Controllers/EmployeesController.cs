@@ -1,6 +1,5 @@
 ﻿namespace nLayer.Api.Controllers;
 
-
 using Application.Employees.Commands.FireEmployee;
 
 using Microsoft.AspNetCore.Mvc;
