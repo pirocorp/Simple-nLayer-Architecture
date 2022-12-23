@@ -15,8 +15,8 @@ public class UpdateEmployeeCommand : IRequest<UpdateEmployeeDto>
     public int Id { get; set; }
 
     [Required]
-    [StringLength(NAME_MAX_LENGTH)]
-    public string Name { get; set; } = string.Empty;
+    [StringLength(ADDRESS_MAX_LENGTH)]
+    public string Address { get; set; } = string.Empty;
 
     [Range(AGE_MIN_VALUE, AGE_MAX_VALUE)]
     public int Age { get; set; }
@@ -27,8 +27,8 @@ public class UpdateEmployeeCommand : IRequest<UpdateEmployeeDto>
     public string Email { get; set; } = string.Empty;
 
     [Required]
-    [StringLength(ADDRESS_MAX_LENGTH)]
-    public string Address { get; set; } = string.Empty;
+    [StringLength(NAME_MAX_LENGTH)]
+    public string Name { get; set; } = string.Empty;
 
     [Range(SALARY_MIN_VALUE, SALARY_MAX_VALUE)]
     public decimal Salary { get; set; }
