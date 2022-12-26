@@ -1,6 +1,5 @@
 ﻿namespace nLayer.Api.Controllers;
 
-
 using Microsoft.AspNetCore.Mvc;
 
 using nLayer.Application.Departments.Commands.CreateDepartment;
