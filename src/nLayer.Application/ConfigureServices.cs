@@ -19,6 +19,7 @@ public static class ConfigureServices
         services.AddTransient<IDateTimeService, DateTimeService>();
 
         // MediatR pipeline 
+        services.AddTransient(typeof(IPipelineBehavior<,>), typeof(UnhandledExceptionBehavior<,>));
         services.AddTransient(typeof(IPipelineBehavior<,>), typeof(LoggingBehavior<,>));
 
         return services;
