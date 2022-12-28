@@ -28,7 +28,7 @@ Pipelines are also extremely handy when it comes to wanting implement common log
 
 MediatR Pipeline behaviours, enabling you execute validation or logging logic before and after your Command or Query Handlers execute, resulting in your handlers only having to deal with Valid requests in your CQRS implementation, and you don't have to clutter your Handler methods with repetitive logging or validation logic!
 
-### Logging Pipeline Behaviour
+### Logging Pipeline Behavior
 
 Logging is area, where you don't really want to pollute your code with logging statements. Weaving logging code in amongst your business logic actually just adds to the complexity and ironically can often become the source of bugs when the primary reason to add logging to code is in order to help you troubleshoot and analyse the cause of bugs in your code.
 
