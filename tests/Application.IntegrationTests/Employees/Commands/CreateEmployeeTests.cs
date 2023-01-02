@@ -11,7 +11,6 @@ using nLayer.Application.DateTime;
 using nLayer.Application.Employees.Commands.CreateEmployee;
 using nLayer.Application.Exceptions;
 using nLayer.Data;
-using nLayer.Data.Entities;
 
 using static nLayer.Data.Common.DataConstants.Employee;
 

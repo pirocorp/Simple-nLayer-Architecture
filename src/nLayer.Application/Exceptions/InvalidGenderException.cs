@@ -1,8 +1,8 @@
 ﻿namespace nLayer.Application.Exceptions;
 
-public class InvalidGenderException : ArgumentException
+public class InvalidGenderException : ValidationException
 {
-    public InvalidGenderException()
-        : base("Invalid gender")
+    public InvalidGenderException(string propertyName)
+        : base(propertyName, "Invalid gender")
     { }
 }

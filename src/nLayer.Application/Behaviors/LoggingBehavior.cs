@@ -21,7 +21,7 @@ public class LoggingBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, 
         var requestName = typeof(TRequest).Name;
 
         this.logger
-            .LogInformation("CleanArchitecture Request: {Name} {@Request}",
+            .LogInformation("Request: {Name} {@Request}",
                 requestName, request);
 
         var response = await next();

@@ -47,15 +47,18 @@ public abstract class BaseTests
         return new ApplicationDbContext(dbOptions);
     }
 
-    protected TAttribute? TestPropertyForAttribute<TAttribute, TClass>(string propertyName)
+    protected TAttribute TestPropertyForAttribute<TAttribute, TClass>(string propertyName)
         where TAttribute : Attribute
     {
         var type = typeof(TClass);
         var property = type.GetProperty(propertyName);
-        var attributeIsDefined = Attribute.IsDefined(property, typeof(TAttribute));
+
+        property.Should().NotBeNull();
+
+        var attributeIsDefined = Attribute.IsDefined(property!, typeof(TAttribute));
 
         attributeIsDefined.Should().BeTrue();
 
-        return Attribute.GetCustomAttribute(property, typeof(TAttribute)) as TAttribute;
+        return (TAttribute)Attribute.GetCustomAttribute(property!, typeof(TAttribute))!;
     }
 }

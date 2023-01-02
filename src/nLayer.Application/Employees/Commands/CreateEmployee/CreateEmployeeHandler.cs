@@ -38,7 +38,7 @@ public class CreateEmployeeHandler
 
         if (!valid)
         {
-            throw new InvalidGenderException();
+            throw new InvalidGenderException(nameof(request.Gender));
         }
 
         var employee = new Employee

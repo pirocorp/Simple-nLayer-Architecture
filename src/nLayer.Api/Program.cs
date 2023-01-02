@@ -5,6 +5,7 @@ using Application;
 using Microsoft.EntityFrameworkCore;
 
 using nLayer.Api.Extensions;
+using nLayer.Api.Filters;
 using nLayer.Data;
 
 public class Program
@@ -39,7 +40,8 @@ public class Program
 
         services.AddApplicationServices();
 
-        services.AddControllers();
+        services.AddControllers(
+            options => options.Filters.Add<ApiExceptionFilterAttribute>());
 
         services.AddEndpointsApiExplorer();
         services.AddSwaggerGen();

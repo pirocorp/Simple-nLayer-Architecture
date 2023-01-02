@@ -30,7 +30,7 @@ public class UnhandledExceptionBehavior<TRequest, TResponse>
             var requestName = typeof(TRequest).Name;
             this.logger.LogError(
                 ex, 
-                "CleanArchitecture Request: Unhandled Exception for Request {Name} {@Request}", 
+                "Request: Unhandled Exception for Request {Name} {@Request}", 
                 requestName, request);
 
             throw;
