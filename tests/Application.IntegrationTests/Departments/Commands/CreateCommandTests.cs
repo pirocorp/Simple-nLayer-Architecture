@@ -6,9 +6,11 @@ using AutoMapper;
 
 using FluentAssertions;
 using FluentAssertions.Execution;
-
+using MediatR;
+using Moq;
 using nLayer.Application.DateTime;
 using nLayer.Application.Departments.Commands.CreateDepartment;
+using nLayer.Application.Departments.Events.CreateDepartment;
 using nLayer.Data;
 
 using static nLayer.Data.Common.DataConstants.Department;
@@ -17,7 +19,8 @@ public class CreateCommandTests : BaseTests
 {
     private readonly IMapper mapper;
     private readonly IDateTimeService dateTimeService;
-    
+    private readonly Mock<IMediator> mediator;
+
     private ApplicationDbContext context;
     private CreateDepartmentHandler commandHandler;
 
@@ -25,6 +28,7 @@ public class CreateCommandTests : BaseTests
     {
         this.dateTimeService = this.GetDateTimeService();
         this.mapper = this.GetMapper();
+        this.mediator = this.GetMediator();
 
         this.context = null!;
         this.commandHandler = null!;
@@ -37,6 +41,7 @@ public class CreateCommandTests : BaseTests
         this.commandHandler = new CreateDepartmentHandler(
             this.context,
             this.dateTimeService,
+            this.mediator.Object,
             this.mapper);
     }
 
@@ -65,6 +70,11 @@ public class CreateCommandTests : BaseTests
             actual.Id.Should().NotBe(0);
             actual.Name.Should().Be(input.Name);
             actual.CreatedAt.Should().Be(this.DateTime);
+
+            this.mediator.Verify(
+                x => x.Publish(
+                    It.IsAny<DepartmentCreatedEvent>(), 
+                    cts.Token));
         }
     }
 

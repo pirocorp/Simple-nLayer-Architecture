@@ -5,14 +5,17 @@ using AutoMapper;
 
 using FluentAssertions;
 using FluentAssertions.Execution;
-
+using MediatR;
+using Moq;
 using nLayer.Application.Departments.Commands.DeleteDepartment;
+using nLayer.Application.Departments.Events.DeleteDepartment;
 using nLayer.Data;
 using nLayer.Data.Entities;
 
 public class DeleteDepartmentTests : BaseTests
 {
     private readonly IMapper mapper;
+    private readonly Mock<IMediator> mediator;
     
     private ApplicationDbContext context;
     private DeleteDepartmentHandler commandHandler;
@@ -20,6 +23,7 @@ public class DeleteDepartmentTests : BaseTests
     public DeleteDepartmentTests()
     {
         this.mapper = this.GetMapper();
+        this.mediator = this.GetMediator();
 
         this.context = null!;
         this.commandHandler = null!;
@@ -31,7 +35,8 @@ public class DeleteDepartmentTests : BaseTests
         this.context = this.GetDatabase();
         this.commandHandler = new DeleteDepartmentHandler(
             this.context,
-            this.mapper);
+            this.mapper,
+            this.mediator.Object);
     }
 
     [Test]
@@ -75,6 +80,11 @@ public class DeleteDepartmentTests : BaseTests
         {
             response.Should().NotBeNull();
             department1.IsActive.Should().BeFalse();
+
+            this.mediator.Verify(
+                x => x.Publish(
+                    It.IsAny<DepartmentDeletedEvent>(), 
+                    cts.Token));
         }
     }
 

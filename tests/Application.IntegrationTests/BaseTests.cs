@@ -2,6 +2,7 @@
 
 using AutoMapper;
 using FluentAssertions;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Moq;
 
@@ -46,6 +47,8 @@ public abstract class BaseTests
 
         return new ApplicationDbContext(dbOptions);
     }
+
+    protected Mock<IMediator> GetMediator() => new ();
 
     protected TAttribute TestPropertyForAttribute<TAttribute, TClass>(string propertyName)
         where TAttribute : Attribute
