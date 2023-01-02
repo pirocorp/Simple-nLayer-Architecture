@@ -1,4 +1,4 @@
-﻿namespace nLayer.Application.DateTime;
+﻿namespace nLayer.Application.Common.DateTime;
 
 using DateTime = System.DateTime;
 

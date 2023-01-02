@@ -4,9 +4,8 @@ using System.Reflection;
 
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
-
-using nLayer.Application.Behaviors;
-using nLayer.Application.DateTime;
+using nLayer.Application.Common.Behaviors;
+using nLayer.Application.Common.DateTime;
 
 public static class ConfigureServices
 {

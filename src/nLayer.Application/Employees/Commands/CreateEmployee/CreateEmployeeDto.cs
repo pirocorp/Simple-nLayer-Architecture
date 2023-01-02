@@ -1,8 +1,7 @@
 ﻿namespace nLayer.Application.Employees.Commands.CreateEmployee;
 
 using AutoMapper;
-
-using nLayer.Application.Mappings;
+using nLayer.Application.Common.Mappings;
 using nLayer.Data.Entities;
 
 public class CreateEmployeeDto : IMapFrom<Employee>

@@ -1,4 +1,4 @@
-﻿namespace nLayer.Application.Mappings;
+﻿namespace nLayer.Application.Common.Mappings;
 
 using System.Reflection;
 
@@ -8,7 +8,7 @@ public class MappingProfile : Profile
 {
     public MappingProfile()
     {
-        this.ApplyMappingsFromAssembly(Assembly.GetExecutingAssembly());
+        ApplyMappingsFromAssembly(Assembly.GetExecutingAssembly());
     }
 
     private void ApplyMappingsFromAssembly(Assembly assembly)
@@ -16,20 +16,20 @@ public class MappingProfile : Profile
         var mapFromType = typeof(IMapFrom<>);
         const string mappingMethodName = nameof(IMapFrom<object>.Mapping);
 
-        bool HasInterface(Type t) 
+        bool HasInterface(Type t)
             => t.IsGenericType && t.GetGenericTypeDefinition() == mapFromType;
-        
+
         var types = assembly
             .GetExportedTypes()
             .Where(t => t.GetInterfaces().Any(HasInterface))
             .ToList();
-        
+
         var argumentTypes = new Type[] { typeof(Profile) };
 
         foreach (var type in types)
         {
             var instance = Activator.CreateInstance(type);
-            
+
             var methodInfo = type.GetMethod(mappingMethodName);
 
             if (methodInfo != null)

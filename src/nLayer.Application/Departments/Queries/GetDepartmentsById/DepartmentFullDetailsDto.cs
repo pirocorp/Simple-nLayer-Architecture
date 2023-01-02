@@ -3,8 +3,7 @@
 using System;
 
 using AutoMapper;
-
-using nLayer.Application.Mappings;
+using nLayer.Application.Common.Mappings;
 using nLayer.Data.Entities;
 
 public class DepartmentFullDetailsDto : IMapFrom<Department>

@@ -6,8 +6,8 @@ using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Moq;
 
-using nLayer.Application.DateTime;
-using nLayer.Application.Mappings;
+using nLayer.Application.Common.DateTime;
+using nLayer.Application.Common.Mappings;
 using nLayer.Data;
 
 public abstract class BaseTests

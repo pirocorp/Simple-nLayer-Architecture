@@ -1,6 +1,6 @@
 ﻿namespace nLayer.Application.Departments.Commands.DeleteDepartment;
 
-using Mappings;
+using nLayer.Application.Common.Mappings;
 using nLayer.Data.Entities;
 
 public class DeleteDepartmentDetailsDto : IMapFrom<Department>

@@ -1,6 +1,6 @@
 ﻿namespace nLayer.Application.Departments.Queries.GetDepartments;
 
-using nLayer.Application.Mappings;
+using nLayer.Application.Common.Mappings;
 using nLayer.Data.Entities;
 
 public class DepartmentListingDto : IMapFrom<Department>

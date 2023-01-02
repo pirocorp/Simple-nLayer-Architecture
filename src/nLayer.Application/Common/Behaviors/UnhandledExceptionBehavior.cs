@@ -1,11 +1,11 @@
-﻿namespace nLayer.Application.Behaviors;
+﻿namespace nLayer.Application.Common.Behaviors;
 
 using MediatR;
 
 using Microsoft.Extensions.Logging;
 
-public class UnhandledExceptionBehavior<TRequest, TResponse> 
-    : IPipelineBehavior<TRequest, TResponse> 
+public class UnhandledExceptionBehavior<TRequest, TResponse>
+    : IPipelineBehavior<TRequest, TResponse>
     where TRequest : notnull, IRequest<TResponse>
 {
     private readonly ILogger<UnhandledExceptionBehavior<TRequest, TResponse>> logger;
@@ -17,7 +17,7 @@ public class UnhandledExceptionBehavior<TRequest, TResponse>
     }
 
     public async Task<TResponse> Handle(
-        TRequest request, 
+        TRequest request,
         RequestHandlerDelegate<TResponse> next,
         CancellationToken cancellationToken)
     {
@@ -28,9 +28,9 @@ public class UnhandledExceptionBehavior<TRequest, TResponse>
         catch (Exception ex)
         {
             var requestName = typeof(TRequest).Name;
-            this.logger.LogError(
-                ex, 
-                "Request: Unhandled Exception for Request {Name} {@Request}", 
+            logger.LogError(
+                ex,
+                "Request: Unhandled Exception for Request {Name} {@Request}",
                 requestName, request);
 
             throw;

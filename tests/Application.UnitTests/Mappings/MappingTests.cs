@@ -4,6 +4,7 @@ using System.Runtime.Serialization;
 
 using AutoMapper;
 
+using nLayer.Application.Common.Mappings;
 using nLayer.Application.Departments.Commands.CreateDepartment;
 using nLayer.Application.Departments.Commands.DeleteDepartment;
 using nLayer.Application.Departments.Commands.RenameDepartment;
@@ -14,7 +15,6 @@ using nLayer.Application.Employees.Commands.FireEmployee;
 using nLayer.Application.Employees.Commands.UpdateEmployee;
 using nLayer.Application.Employees.Queries.GetEmployees;
 using nLayer.Application.Employees.Queries.GetEmployeesById;
-using nLayer.Application.Mappings;
 using nLayer.Data.Entities;
 
 

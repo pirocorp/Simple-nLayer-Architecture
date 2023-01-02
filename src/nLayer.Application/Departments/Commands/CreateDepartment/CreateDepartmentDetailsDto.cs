@@ -1,8 +1,7 @@
 ﻿namespace nLayer.Application.Departments.Commands.CreateDepartment;
 
 using System;
-
-using nLayer.Application.Mappings;
+using nLayer.Application.Common.Mappings;
 using nLayer.Data.Entities;
 
 public class CreateDepartmentDetailsDto : IMapFrom<Department>
