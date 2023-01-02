@@ -49,6 +49,13 @@ Logging is area, where you don't really want to pollute your code with logging s
 - Notification: zero to many handlers
 
 
+## Vertical Slices
+
+Feature Slices or Vertical Slices are the terms used most for organizing by feature. Whatever our feature slice is, it surely makes sense to keep all that code together. 
+
+![image](https://user-images.githubusercontent.com/34960418/210254753-eaff47ef-e248-4c2c-a318-465f01aa398f.png)
+
+
 # Technologies
 
 - [ASP.NET Core 7](https://learn.microsoft.com/en-us/aspnet/core/introduction-to-aspnet-core?view=aspnetcore-7.0)
