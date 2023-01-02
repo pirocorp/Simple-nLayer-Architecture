@@ -32,6 +32,10 @@ MediatR Pipeline behaviours, enabling you execute validation or logging logic be
 
 Logging is area, where you don't really want to pollute your code with logging statements. Weaving logging code in amongst your business logic actually just adds to the complexity and ironically can often become the source of bugs when the primary reason to add logging to code is in order to help you troubleshoot and analyse the cause of bugs in your code.
 
+### Unhandled Exception Behavior
+
+**UnhandledExceptionBehavior** catches all unhandled exceptions at the application layer, logs them, and throws them for handling in the API layer. **ApiExceptionFilterAttribute** handles Exceptions at the API layer.
+
 
 # Technologies
 
