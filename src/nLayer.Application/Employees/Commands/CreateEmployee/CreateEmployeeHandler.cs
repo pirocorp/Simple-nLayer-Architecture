@@ -6,11 +6,11 @@ using AutoMapper.QueryableExtensions;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
+using nLayer.Application.DateTime;
+using nLayer.Application.Common.Exceptions;
 using nLayer.Data;
 using nLayer.Data.Entities;
 using nLayer.Data.Enums;
-using nLayer.Application.DateTime;
-using nLayer.Application.Exceptions;
 
 public class CreateEmployeeHandler 
     : IRequestHandler<CreateEmployeeCommand, CreateEmployeeDto>

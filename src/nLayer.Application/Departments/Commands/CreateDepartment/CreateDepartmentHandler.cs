@@ -5,6 +5,7 @@ using AutoMapper;
 using MediatR;
 
 using nLayer.Application.DateTime;
+using nLayer.Application.Departments.Events.CreateDepartment;
 using nLayer.Data;
 using nLayer.Data.Entities;
 
@@ -12,15 +13,18 @@ public class CreateDepartmentHandler : IRequestHandler<CreateDepartmentCommand, 
 {
     private readonly ApplicationDbContext context;
     private readonly IDateTimeService dateTimeService;
+    private readonly IMediator mediator;
     private readonly IMapper mapper;
 
     public CreateDepartmentHandler(
         ApplicationDbContext context, 
         IDateTimeService dateTimeService, 
+        IMediator mediator,
         IMapper mapper)
     {
         this.context = context;
         this.dateTimeService = dateTimeService;
+        this.mediator = mediator;
         this.mapper = mapper;
     }
 
@@ -37,6 +41,10 @@ public class CreateDepartmentHandler : IRequestHandler<CreateDepartmentCommand, 
 
         await this.context.Departments.AddAsync(department, cancellationToken);
         await this.context.SaveChangesAsync(cancellationToken);
+
+        await this.mediator.Publish(
+            new DepartmentCreatedEvent(department),
+            cancellationToken);
 
         return this.mapper.Map<CreateDepartmentDetailsDto>(department);
     }

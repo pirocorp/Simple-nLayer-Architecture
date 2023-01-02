@@ -1,4 +1,4 @@
-﻿namespace nLayer.Application.Exceptions;
+﻿namespace nLayer.Application.Common.Exceptions;
 
 public class InvalidGenderException : ValidationException
 {

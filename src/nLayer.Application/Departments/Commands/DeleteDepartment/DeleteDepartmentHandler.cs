@@ -1,7 +1,7 @@
 ﻿namespace nLayer.Application.Departments.Commands.DeleteDepartment;
 
 using AutoMapper;
-
+using Events.DeleteDepartment;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
@@ -12,11 +12,16 @@ public class DeleteDepartmentHandler
 {
     private readonly ApplicationDbContext context;
     private readonly IMapper mapper;
+    private readonly IMediator mediator;
 
-    public DeleteDepartmentHandler(ApplicationDbContext context, IMapper mapper)
+    public DeleteDepartmentHandler(
+        ApplicationDbContext context, 
+        IMapper mapper,
+        IMediator mediator)
     {
         this.context = context;
         this.mapper = mapper;
+        this.mediator = mediator;
     }
 
     public async Task<DeleteDepartmentDetailsDto?> Handle(
@@ -36,6 +41,10 @@ public class DeleteDepartmentHandler
 
         department.IsActive = false;
         await this.context.SaveChangesAsync(cancellationToken);
+
+        await this.mediator.Publish(
+            new DepartmentDeletedEvent(department),
+            cancellationToken);
 
         return this.mapper.Map<DeleteDepartmentDetailsDto>(department);
     }
