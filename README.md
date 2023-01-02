@@ -60,7 +60,6 @@ Feature Slices or Vertical Slices are the terms used most for organizing by feat
 
 - **Coupling** - With the [mediator pattern](https://github.com/pirocorp/CSharp-Masterclass/tree/main/04.%20Design%20Patterns%20-%20Behavioral%20Patterns#-mediator), communication between objects is encapsulated with a **mediator** object. Objects no longer communicate directly with each other, but instead communicate through the mediator. This reduces the dependencies between communicating objects, thereby lowering the [coupling](https://en.wikipedia.org/wiki/Coupling_(computer_programming)).
 - **Runtime Resolution** - The downside to this that there is no compile time type checking.  When the mediator is invoked at runtime, it could fail to send the request if there is no handler defined.
-- **** - 
 
 The purpose of using the mediator pattern is to limit the coupling between integration boundaries. Those boundaries in applications are typically the Web/UI Framework and core application. This means I’ll have my controllers take a dependency on the mediator and not my core application.
 
