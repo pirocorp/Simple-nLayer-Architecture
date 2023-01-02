@@ -10,6 +10,8 @@ This is the topmost level of the application. The presentation layer displays in
 
 The application layer contains [CQRS](https://github.com/pirocorp/CSharp-Masterclass/tree/main/09.%20CQRS) and [MediatR](https://github.com/jbogard/MediatR). **CQRS stands for Command and Query Responsibility Segregation**, a pattern that separates read and update operations for a data store. The flexibility created by migrating to CQRS allows a system to better evolve over time and prevents update commands from causing merge conflicts at the domain level.
 
+![image](https://user-images.githubusercontent.com/34960418/210239652-92b18c94-865a-4f64-a156-94ba2f681394.png)
+
 ### Data Layer (nLayer.Data)
 
 The data access layer encapsulates the persistence mechanisms and exposes the data. The data access layer should provide an API to the service layer that exposes methods of managing the stored data without exposing or creating dependencies on the data storage mechanisms. As with the separation of any layer, there are costs for implementation and often costs to performance in exchange for improved maintainability.
@@ -35,6 +37,16 @@ Logging is area, where you don't really want to pollute your code with logging s
 ### Unhandled Exception Behavior
 
 **UnhandledExceptionBehavior** catches all unhandled exceptions at the application layer, logs them, and throws them for handling in the API layer. **ApiExceptionFilterAttribute** handles Exceptions at the API layer.
+
+
+## Notifications 
+
+![image](https://user-images.githubusercontent.com/34960418/210239088-bc4fa7f6-eda5-48bf-8aa4-f97311b8b0a1.png)
+
+**MediatR** has concept Notification (event) with several interfaces, INotification, IAsyncNotification. The concept and how it works with MediatR are very similar to a request (Command or Query) and its appropriate handler. The difference with a Notification is it can have **many** handlers.
+
+- Request: only one handler
+- Notification: zero to many handlers
 
 
 # Technologies
