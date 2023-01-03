@@ -20,14 +20,14 @@ public class LoggingBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, 
     {
         var requestName = typeof(TRequest).Name;
 
-        logger
+        this.logger
             .LogInformation("Request: {Name} {@Request}",
                 requestName, request);
 
         var response = await next();
         var responseName = response?.GetType().Name;
 
-        logger.LogInformation("Handled {Name} {@Response}",
+        this.logger.LogInformation("Handled {Name} {@Response}",
             responseName, response);
 
         return response;

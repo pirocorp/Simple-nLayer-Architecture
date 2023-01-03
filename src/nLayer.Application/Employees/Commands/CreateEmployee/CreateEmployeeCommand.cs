@@ -12,6 +12,7 @@ public record CreateEmployeeCommand : IRequest<CreateEmployeeDto>
     [StringLength(ADDRESS_MAX_LENGTH)]
     public required string Address { get; init; }
 
+    [Range(AGE_MIN_VALUE, AGE_MAX_VALUE)]
     public int Age { get; init; }
 
     [Required]
@@ -26,6 +27,7 @@ public record CreateEmployeeCommand : IRequest<CreateEmployeeDto>
     [StringLength(NAME_MAX_LENGTH)]
     public required string Name { get; init; }
 
+    [Range(SALARY_MIN_VALUE, SALARY_MAX_VALUE)]
     public decimal Salary { get; init; }
 
     public int DepartmentId { get; init; }

@@ -1,6 +1,7 @@
 ﻿namespace nLayer.Application.Departments.Commands.RenameDepartment;
 
 using System;
+
 using nLayer.Application.Common.Mappings;
 using nLayer.Data.Entities;
 

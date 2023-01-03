@@ -1,10 +1,9 @@
 ﻿namespace nLayer.Application.Employees.Queries.GetEmployeesById;
 
 using AutoMapper;
+
 using nLayer.Application.Common.Mappings;
 using nLayer.Data.Entities;
-
-using DateTime = System.DateTime;
 
 public class GetEmployeesByIdDto : IMapFrom<Employee>
 {

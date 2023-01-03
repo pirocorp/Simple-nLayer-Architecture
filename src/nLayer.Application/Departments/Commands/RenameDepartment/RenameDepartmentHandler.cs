@@ -1,9 +1,9 @@
 ﻿namespace nLayer.Application.Departments.Commands.RenameDepartment;
 
 using AutoMapper;
-
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+
 using nLayer.Data;
 
 public class RenameDepartmentHandler : IRequestHandler<RenameDepartmentCommand, RenameDepartmentDetailsDto?>
