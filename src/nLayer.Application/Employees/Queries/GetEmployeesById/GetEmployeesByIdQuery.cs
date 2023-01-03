@@ -2,7 +2,4 @@
 
 using MediatR;
 
-public class GetEmployeesByIdQuery : IRequest<GetEmployeesByIdDto>
-{
-    public int Id { get; set; }
-}
+public record GetEmployeesByIdQuery(int Id) : IRequest<GetEmployeesByIdDto>;

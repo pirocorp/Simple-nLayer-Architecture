@@ -8,30 +8,30 @@ using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 using static Data.Common.DataConstants.Employee;
 
-public class UpdateEmployeeCommand : IRequest<UpdateEmployeeDto>
+public record UpdateEmployeeCommand : IRequest<UpdateEmployeeDto>
 {
     [BindNever]
     [JsonIgnore]
-    public int Id { get; set; }
+    public int Id { get; init; }
 
     [Required]
     [StringLength(ADDRESS_MAX_LENGTH)]
-    public string Address { get; set; } = string.Empty;
+    public required string Address { get; init; }
 
     [Range(AGE_MIN_VALUE, AGE_MAX_VALUE)]
-    public int Age { get; set; }
+    public int Age { get; init; }
 
     [Required]
     [EmailAddress]
     [StringLength(EMAIL_MAX_LENGTH)]
-    public string Email { get; set; } = string.Empty;
+    public required string Email { get; init; }
 
     [Required]
     [StringLength(NAME_MAX_LENGTH)]
-    public string Name { get; set; } = string.Empty;
+    public required string Name { get; init; }
 
     [Range(SALARY_MIN_VALUE, SALARY_MAX_VALUE)]
-    public decimal Salary { get; set; }
+    public decimal Salary { get; init; }
 
-    public int DepartmentId { get; set; }
+    public int DepartmentId { get; init; }
 }

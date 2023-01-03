@@ -6,26 +6,27 @@ using MediatR;
 
 using static Data.Common.DataConstants.Employee;
 
-public class CreateEmployeeCommand : IRequest<CreateEmployeeDto>
+public record CreateEmployeeCommand : IRequest<CreateEmployeeDto>
 {
     [Required]
     [StringLength(ADDRESS_MAX_LENGTH)]
-    public string Address { get; set; } = string.Empty;
+    public required string Address { get; init; }
 
-    public int Age { get; set; }
+    public int Age { get; init; }
 
     [Required]
     [EmailAddress]
     [StringLength(EMAIL_MAX_LENGTH)]
-    public string Email { get; set; } = string.Empty;
+    public required string Email { get; init; }
 
-    public string Gender { get; set; } = string.Empty;
+    [Required]
+    public required string Gender { get; init; }
 
     [Required]
     [StringLength(NAME_MAX_LENGTH)]
-    public string Name { get; set; } = string.Empty;
+    public required string Name { get; init; }
 
-    public decimal Salary { get; set; }
+    public decimal Salary { get; init; }
 
-    public int DepartmentId { get; set; }
+    public int DepartmentId { get; init; }
 }

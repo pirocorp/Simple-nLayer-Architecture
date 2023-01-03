@@ -35,7 +35,7 @@ public class DepartmentsController : ApiControllerBase
         RenameDepartmentCommand command,
         CancellationToken cancellationToken)
     {
-        command.Id = id;
+        command = command with { Id = id };
         var response = await this.Mediator
             .Send(command, cancellationToken);
 
@@ -46,6 +46,6 @@ public class DepartmentsController : ApiControllerBase
     public async Task<ActionResult<DeleteDepartmentDetailsDto>> Delete(int id, CancellationToken cancellationToken)
         => this.OkOrNotFound(
             await this.Mediator.Send(
-                new DeleteDepartmentCommand() { Id = id }, 
+                new DeleteDepartmentCommand(id), 
                 cancellationToken));
 }

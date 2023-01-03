@@ -14,7 +14,7 @@ public class EmployeesController : ApiControllerBase
     [HttpGet(WITH_ID)]
     public async Task<ActionResult<GetEmployeesByIdDto>> GetById(int id)
         => this.OkOrNotFound(
-            await this.Mediator.Send(new GetEmployeesByIdQuery { Id = id }));
+            await this.Mediator.Send(new GetEmployeesByIdQuery(id)));
 
     [HttpGet]
     public async Task<ActionResult<IEnumerable<GetEmployeesListingDto>>> GetEmployees()
@@ -31,7 +31,7 @@ public class EmployeesController : ApiControllerBase
         int id,
         CancellationToken cancellationToken)
             => await this.Mediator.Send(
-                new FireEmployeeCommand { Id = id }, 
+                new FireEmployeeCommand(id), 
                 cancellationToken);
 
     [HttpPost(WITH_ID)]
@@ -40,7 +40,7 @@ public class EmployeesController : ApiControllerBase
         UpdateEmployeeCommand input,
         CancellationToken cancellationToken)
     {
-        input.Id = id;
+        input = input with { Id = id };
 
         var response = await this.Mediator
             .Send(input, cancellationToken);

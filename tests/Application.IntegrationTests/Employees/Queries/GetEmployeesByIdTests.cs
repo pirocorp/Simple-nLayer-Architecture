@@ -2,6 +2,7 @@
 
 using AutoMapper;
 using FluentAssertions;
+
 using nLayer.Application.Employees.Queries.GetEmployeesById;
 using nLayer.Data;
 
@@ -47,10 +48,7 @@ public class GetEmployeesByIdTests : BaseEmployeesTests
 
         var expected = this.mapper.Map<GetEmployeesByIdDto>(this.Employees.First());
 
-        var query = new GetEmployeesByIdQuery()
-        {
-            Id = expected.Id,
-        };
+        var query = new GetEmployeesByIdQuery(expected.Id);
 
         var actual = await this.queryHandler
             .Handle(query, cts.Token);
@@ -63,10 +61,7 @@ public class GetEmployeesByIdTests : BaseEmployeesTests
     public async Task GetByIdShouldReturnNullWithIdIsMissing()
     {
         var cts = new CancellationTokenSource();
-        var query = new GetEmployeesByIdQuery()
-        {
-            Id = -6
-        };
+        var query = new GetEmployeesByIdQuery(-6);
 
         var actual = await this.queryHandler
             .Handle(query, cts.Token);

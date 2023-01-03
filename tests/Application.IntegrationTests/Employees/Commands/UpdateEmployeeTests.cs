@@ -102,7 +102,10 @@ public class UpdateEmployeeTests : BaseEmployeesTests
         var cts = new CancellationTokenSource();
         var command = new UpdateEmployeeCommand()
         {
-            Id = -51
+            Id = -51,
+            Address = "ASD",
+            Email = "asd@asd.com",
+            Name = "Asd Asd"
         };
 
         var response = await this.commandHandler

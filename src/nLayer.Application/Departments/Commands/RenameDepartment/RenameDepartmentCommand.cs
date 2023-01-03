@@ -8,13 +8,13 @@ using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 using static Data.Common.DataConstants.Department;
 
-public class RenameDepartmentCommand : IRequest<RenameDepartmentDetailsDto>
+public record RenameDepartmentCommand : IRequest<RenameDepartmentDetailsDto>
 {
     [Required]
     [StringLength(NAME_MAX_LENGTH)]
-    public string Name { get; set; } = string.Empty;
+    public required string Name { get; init; }
 
     [BindNever]
     [JsonIgnore]
-    public int Id { get; set; }
+    public int Id { get; init; }
 }

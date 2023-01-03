@@ -2,7 +2,4 @@
 
 using MediatR;
 
-public class DeleteDepartmentCommand : IRequest<DeleteDepartmentDetailsDto>
-{
-    public int Id { get; set; }
-}
+public record DeleteDepartmentCommand(int Id) : IRequest<DeleteDepartmentDetailsDto>;

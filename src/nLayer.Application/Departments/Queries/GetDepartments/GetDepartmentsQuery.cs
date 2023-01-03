@@ -2,5 +2,4 @@
 
 using MediatR;
 
-public record GetDepartmentsQuery : IRequest<IEnumerable<DepartmentListingDto>>
-{ }
+public record GetDepartmentsQuery : IRequest<IEnumerable<DepartmentListingDto>>;

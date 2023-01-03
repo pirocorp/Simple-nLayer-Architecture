@@ -68,10 +68,7 @@ public class DeleteDepartmentTests : BaseTests
         var cts = new CancellationTokenSource();
         await this.context.SaveChangesAsync(cts.Token);
 
-        var command = new DeleteDepartmentCommand()
-        {
-            Id = department1.Id
-        };
+        var command = new DeleteDepartmentCommand(department1.Id);
 
         var response = await this.commandHandler
             .Handle(command, cts.Token);
@@ -111,10 +108,7 @@ public class DeleteDepartmentTests : BaseTests
         var cts = new CancellationTokenSource();
         await this.context.SaveChangesAsync(cts.Token);
 
-        var command = new DeleteDepartmentCommand()
-        {
-            Id = -1
-        };
+        var command = new DeleteDepartmentCommand(-1);
 
         var response = await this.commandHandler
             .Handle(command, cts.Token);
@@ -137,10 +131,7 @@ public class DeleteDepartmentTests : BaseTests
         var cts = new CancellationTokenSource();
         await this.context.SaveChangesAsync(cts.Token);
 
-        var input = new DeleteDepartmentCommand()
-        {
-            Id = department1.Id,
-        };
+        var input = new DeleteDepartmentCommand(department1.Id);
 
         cts.Cancel();
 

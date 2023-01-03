@@ -50,10 +50,7 @@ public class FireEmployeeTests : BaseEmployeesTests
         var employee = this.Employees.First();
         var beforeFired = employee.IsActive;
 
-        var command = new FireEmployeeCommand()
-        {
-            Id = employee.Id
-        };
+        var command = new FireEmployeeCommand(employee.Id);
 
         var expected = await this.commandHandler.Handle(command, cts.Token);
 
@@ -79,10 +76,7 @@ public class FireEmployeeTests : BaseEmployeesTests
         var expected = this.Employees.First();
         cts.Cancel();
 
-        var command = new FireEmployeeCommand()
-        {
-            Id = expected.Id
-        };
+        var command = new FireEmployeeCommand(expected.Id);
 
         using (new AssertionScope())
         {
@@ -98,10 +92,7 @@ public class FireEmployeeTests : BaseEmployeesTests
     [Test]
     public async Task FireEmployeeReturnsNullWithInvalidId()
     {
-        var command = new FireEmployeeCommand()
-        {
-            Id = -6
-        };
+        var command = new FireEmployeeCommand(-6);
 
         var expected = await this.commandHandler
             .Handle(command, CancellationToken.None);
