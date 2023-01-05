@@ -1,4 +1,4 @@
-# Simple N-Layer Architecture with CQRS
+# Simple nLayer Architecture with CQRS
 
 ## Layers
 
